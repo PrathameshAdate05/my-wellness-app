@@ -1,9 +1,11 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
-import 'package:my_wellness_mobile/main.dart';
+import 'package:my_wellness_mobile/modules/home/home_bindings.dart';
+import 'package:my_wellness_mobile/modules/home/home_screen.dart';
 import 'package:my_wellness_mobile/modules/login/login_bindings.dart';
 import 'package:my_wellness_mobile/modules/login/login_screen.dart';
 import 'package:my_wellness_mobile/modules/splash/splash_bindings.dart';
+import 'package:my_wellness_mobile/modules/splash/splash_screen.dart';
 
 import 'app_routes.dart';
 
@@ -24,11 +26,11 @@ class AppPages {
       page: () => SplashScreen(),
       binding: SplashBinding(),
     ),
-    // GetPage(
-    //   name: Routes.TICKETS,
-    //   page: () => TicketsScreen(),
-    //   binding: TicketsBinding(),
-    // ),
+    GetPage(
+      name: Routes.HOME,
+      page: () => HomeScreen(),
+      binding: HomeBinding(),
+    ),
     // GetPage(
     //   name: Routes.LOGIN,
     //   page: () => LoginScreen(),
