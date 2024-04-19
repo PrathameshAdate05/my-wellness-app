@@ -5,10 +5,10 @@ import 'package:my_wellness_mobile/routes/app_routes.dart';
 class SplashController extends GetxController {
   @override
   void onInit() {
-    Future.delayed(Duration(seconds: 3), () {
-      Get.put(LoginController());
-      Get.toNamed(Routes.LOGIN);
-    });
+    // Future.delayed(Duration(seconds: 3), () {
+    //   Get.put(LoginController());
+    //   Get.toNamed(Routes.LOGIN);
+    // });
     print("SPLASH CONTROL");
     super.onInit();
   }
