@@ -18,7 +18,10 @@ class LoginScreen extends StatelessWidget {
             ),
             const Text(
               "Login",
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: "Poppins"),
             ),
             const SizedBox(
               height: 20,
@@ -28,8 +31,10 @@ class LoginScreen extends StatelessWidget {
               child: Obx(
                 () => Column(
                   children: [
-                    const TextField(
-                      decoration: InputDecoration(
+                    TextField(
+                      style: const TextStyle(fontFamily: "Poppins"),
+                      controller: controller.idController,
+                      decoration: const InputDecoration(
                           hintText: "Patient ID",
                           border:
                               OutlineInputBorder(), // To remove the default border of the TextField
@@ -42,7 +47,9 @@ class LoginScreen extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    TextFormField(
+                    TextField(
+                      style: const TextStyle(fontFamily: "Poppins"),
+                      controller: controller.passwordController,
                       decoration: InputDecoration(
                         hintText: "Password",
                         border: const OutlineInputBorder(),
@@ -67,17 +74,18 @@ class LoginScreen extends StatelessWidget {
                     const SizedBox(height: 100),
                     Container(
                       width: Get.width,
-                      margin: EdgeInsets.only(left: 60, right: 60),
+                      margin: const EdgeInsets.only(left: 60, right: 60),
                       height: 50, // Set your desired width here
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromRGBO(14, 206, 112, 1),
+                          backgroundColor:
+                              const Color.fromRGBO(14, 206, 112, 1),
                           foregroundColor: Colors.black,
                         ),
-                        onPressed: () {},
-                        child: Text(
+                        onPressed: () => controller.onPressedLogin(context),
+                        child: const Text(
                           "Login",
-                          style: TextStyle(fontSize: 20),
+                          style: TextStyle(fontSize: 20, fontFamily: "Poppins"),
                         ),
                       ),
                     ),

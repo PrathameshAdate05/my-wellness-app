@@ -35,7 +35,10 @@ class SplashScreen extends StatelessWidget {
                   ),
                   Text(
                     "MyWellness",
-                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.w600),
+                    style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.w600,
+                        fontFamily: "Poppins"),
                   ),
                   SizedBox(
                     width: 5,
@@ -55,6 +58,7 @@ class SplashScreen extends StatelessWidget {
                 "Syncing Your Health Information Securely",
                 style: TextStyle(
                     fontSize: 15,
+                    fontFamily: "Poppins",
                     fontWeight: FontWeight.w400,
                     fontStyle: FontStyle.italic),
               )
