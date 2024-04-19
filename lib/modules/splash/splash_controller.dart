@@ -9,7 +9,6 @@ class SplashController extends GetxController {
       Get.put(LoginController());
       Get.toNamed(Routes.LOGIN);
     });
-    print("SPLASH CONTROL");
     super.onInit();
   }
 }
