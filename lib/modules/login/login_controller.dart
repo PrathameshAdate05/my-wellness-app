@@ -6,7 +6,10 @@ import 'package:my_wellness_mobile/modules/home/home_controller.dart';
 import 'package:my_wellness_mobile/routes/app_routes.dart';
 import 'package:http/http.dart' as http;
 import 'package:my_wellness_mobile/utils/constans.dart';
+import 'package:my_wellness_mobile/widgets/custom_loader.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+CustomLoader customLoader = CustomLoader();
 
 class LoginController extends GetxController {
   RxBool isObscure = true.obs;
@@ -41,6 +44,7 @@ class LoginController extends GetxController {
   }
 
   Future<void> login(BuildContext context) async {
+    customLoader.show(context);
     const url = LOGIN_URL;
     final response = await http.post(
       Uri.parse(url),
@@ -50,7 +54,7 @@ class LoginController extends GetxController {
       }), // Replace with your POST body
       headers: {'Content-Type': 'application/json'},
     );
-
+    customLoader.hide();
     if (response.statusCode == 200) {
       String token = response.body;
       final SharedPreferences sharedPreferences =
