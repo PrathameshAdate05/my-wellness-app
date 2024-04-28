@@ -72,15 +72,17 @@ class LoginScreen extends StatelessWidget {
                       obscureText: controller.isObscure.value,
                     ),
                     const SizedBox(height: 100),
-                    Container(
+                    SizedBox(
                       width: Get.width,
-                      margin: const EdgeInsets.only(left: 60, right: 60),
                       height: 50, // Set your desired width here
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor:
                               const Color.fromRGBO(14, 206, 112, 1),
                           foregroundColor: Colors.black,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
                         ),
                         onPressed: () => controller.onPressedLogin(context),
                         child: const Text(

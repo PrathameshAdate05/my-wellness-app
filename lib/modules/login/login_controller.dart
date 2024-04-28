@@ -48,10 +48,8 @@ class LoginController extends GetxController {
     const url = LOGIN_URL;
     final response = await http.post(
       Uri.parse(url),
-      body: json.encode({
-        'username': idController.text,
-        'password': passwordController.text
-      }), // Replace with your POST body
+      body: json.encode(
+          {'username': idController.text, 'password': passwordController.text}),
       headers: {'Content-Type': 'application/json'},
     );
     customLoader.hide();
@@ -60,6 +58,7 @@ class LoginController extends GetxController {
       final SharedPreferences sharedPreferences =
           await SharedPreferences.getInstance();
       sharedPreferences.setString('token', token);
+      sharedPreferences.setString('id', idController.text);
       showSnackBar(context, "Login Successfull!", Colors.green);
       Future.delayed(const Duration(seconds: 2), () => navigateToHome(context));
     } else {
