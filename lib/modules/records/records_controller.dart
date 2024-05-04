@@ -35,6 +35,7 @@ class RecordsController extends GetxController {
   Future<void> getUserRecords() async {
     customLoader.show(Get.context!);
     String url = "$RECORDS_URL${userId.value}";
+    print("URL $url ");
     final response = await http.get(
       Uri.parse(url),
       headers: {

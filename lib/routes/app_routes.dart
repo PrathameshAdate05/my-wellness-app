@@ -5,4 +5,6 @@ abstract class Routes {
   static const RECORDS = '/records';
   static const RECORD_DETAILS = '/record_details';
   static const PRESCRIPTION_DETAILS = '/prescription_details';
+  static const PRESCRIPTIONS = '/prescriptions';
+  static const PROFILE = '/profile';
 }

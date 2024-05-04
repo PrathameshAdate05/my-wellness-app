@@ -20,6 +20,7 @@ class BottomNavView extends StatelessWidget {
     controller.profile.value = profile;
     controller.prescription.value = prescription;
     controller.records.value = records;
+    controller.context = context;
     return Container(
       padding: const EdgeInsets.only(top: 20, bottom: 10),
       decoration: BoxDecoration(

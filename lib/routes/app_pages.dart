@@ -2,6 +2,8 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
 import 'package:my_wellness_mobile/modules/login/login_bindings.dart';
 import 'package:my_wellness_mobile/modules/login/login_screen.dart';
+import 'package:my_wellness_mobile/modules/prescriptions_list/prescriptions_bindings.dart';
+import 'package:my_wellness_mobile/modules/prescriptions_list/prescriptions_screen.dart';
 import 'package:my_wellness_mobile/modules/prescritption_detail/prescription_detail_bindings.dart';
 import 'package:my_wellness_mobile/modules/prescritption_detail/prescription_detail_screen.dart';
 import 'package:my_wellness_mobile/modules/record_details/record_details_bindings.dart';
@@ -44,6 +46,11 @@ class AppPages {
       name: Routes.PRESCRIPTION_DETAILS,
       page: () => PrescriptionDetailScreen(),
       binding: PrescriptionDetailBinding(),
+    ),
+    GetPage(
+      name: Routes.PRESCRIPTIONS,
+      page: () => PrescriptionsScreen(),
+      binding: PrescriptionsBinding(),
     ),
     // GetPage(
     //   name: Routes.LOGIN,
