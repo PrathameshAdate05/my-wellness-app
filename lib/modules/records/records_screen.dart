@@ -10,29 +10,35 @@ class RecordsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Center(
-          child: Text(
-            "Records",
-            style: TextStyle(fontFamily: "Poppins"),
-          ),
-        ),
-        backgroundColor: CustomColor.lightGreen,
-        automaticallyImplyLeading: false,
-      ),
-      body: Obx(
-        () => Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
-                itemBuilder: (context, index) =>
-                    RecordCardView(record: controller.recordsList[index]),
-                itemCount: controller.recordsList.length,
-              ),
+    return RefreshIndicator(
+      onRefresh: () {
+        return controller.getUserRecords();
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Center(
+            child: Text(
+              "Records",
+              style: TextStyle(fontFamily: "Poppins"),
             ),
-            BottomNavView(profile: false, prescription: false, records: true),
-          ],
+          ),
+          backgroundColor: CustomColor.lightGreen,
+          automaticallyImplyLeading: false,
+        ),
+        body: Obx(
+          () => Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                  itemBuilder: (context, index) =>
+                      RecordCardView(record: controller.recordsList[index]),
+                  itemCount: controller.recordsList.length,
+                  reverse: true,
+                ),
+              ),
+              BottomNavView(profile: false, prescription: false, records: true),
+            ],
+          ),
         ),
       ),
     );

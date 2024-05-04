@@ -11,7 +11,8 @@ class RecordCardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     DateTime createdAtDateTime = DateTime.parse(record.createdAt);
-    String formattedDate = DateFormat('yyyy-MM-dd').format(createdAtDateTime);
+    String formattedDate =
+        DateFormat('yyyy-MM-dd hh:mm a').format(createdAtDateTime);
     return Card(
       surfaceTintColor: Colors.white,
       margin: const EdgeInsets.all(10),

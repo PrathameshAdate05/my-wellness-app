@@ -31,7 +31,7 @@ class RecordsController extends GetxController {
     token.value = sharedPreferences.getString('token') ?? '';
   }
 
-  getUserRecords() async {
+  Future<void> getUserRecords() async {
     customLoader.show(Get.context!);
     String url = "$RECORDS_URL${userId.value}";
     final response = await http.get(
