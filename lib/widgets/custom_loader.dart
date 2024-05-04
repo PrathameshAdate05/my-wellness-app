@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 class CustomLoader extends StatelessWidget {
@@ -24,7 +25,7 @@ class CustomLoader extends StatelessWidget {
 
   void hide() {
     if (_context != null) {
-      Navigator.of(_context!).pop();
+      Navigator.of(Get.context!).pop();
       _context = null;
     }
   }

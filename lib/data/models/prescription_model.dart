@@ -1,7 +1,7 @@
 import 'package:my_wellness_mobile/data/models/medicine_model.dart';
 
 class Prescription {
-  final int pid;
+  final String pid;
   final List<Medicine> medicines;
   final String patientId;
   final String doctorId;

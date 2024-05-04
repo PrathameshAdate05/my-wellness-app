@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_wellness_mobile/modules/home/home_controller.dart';
+import 'package:my_wellness_mobile/modules/records/records_controller.dart';
 import 'package:my_wellness_mobile/routes/app_routes.dart';
 import 'package:http/http.dart' as http;
 import 'package:my_wellness_mobile/utils/constans.dart';
@@ -17,15 +17,16 @@ class LoginController extends GetxController {
   TextEditingController passwordController = TextEditingController();
 
   onPressedLogin(BuildContext context) async {
-    if (idController.text.isEmpty && passwordController.text.isEmpty) {
-      showSnackBar(context, "ID and Password is required", Colors.red);
-    } else if (idController.text.isEmpty) {
-      showSnackBar(context, "ID is required", Colors.red);
-    } else if (passwordController.text.isEmpty) {
-      showSnackBar(context, "Password is required", Colors.red);
-    } else {
-      await login(context);
-    }
+    navigateToHome(context);
+    // if (idController.text.isEmpty && passwordController.text.isEmpty) {
+    //   showSnackBar(context, "ID and Password is required", Colors.red);
+    // } else if (idController.text.isEmpty) {
+    //   showSnackBar(context, "ID is required", Colors.red);
+    // } else if (passwordController.text.isEmpty) {
+    //   showSnackBar(context, "Password is required", Colors.red);
+    // } else {
+    //   await login(context);
+    // }
   }
 
   showSnackBar(BuildContext context, String message, Color color) {
@@ -59,7 +60,7 @@ class LoginController extends GetxController {
           await SharedPreferences.getInstance();
       sharedPreferences.setString('token', token);
       sharedPreferences.setString('id', idController.text);
-      showSnackBar(context, "Login Successfull!", Colors.green);
+      // showSnackBar(context, "Login Successfull!", Colors.green);
       Future.delayed(const Duration(seconds: 2), () => navigateToHome(context));
     } else {
       showSnackBar(context, "Invalid ID or Password", Colors.red);
@@ -68,7 +69,7 @@ class LoginController extends GetxController {
 
   navigateToHome(BuildContext context) {
     Navigator.pop(context);
-    Get.put(HomeController());
+    Get.put(RecordsController());
     Get.toNamed(Routes.HOME);
   }
 }

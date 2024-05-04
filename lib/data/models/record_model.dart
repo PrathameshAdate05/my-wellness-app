@@ -1,6 +1,8 @@
+import 'package:my_wellness_mobile/data/models/doctor_model.dart';
+import 'package:my_wellness_mobile/data/models/hospital_model.dart';
 import 'package:my_wellness_mobile/data/models/prescription_model.dart';
 
-class Record {
+class RecordModel {
   final String doctorId;
   final String patientId;
   final String hospitalId;
@@ -9,8 +11,11 @@ class Record {
   final String description;
   final DateTime admissionDate;
   final DateTime dischargeDate;
+  final Doctor doctor;
+  final Hospital hospital;
+  final String createdAt;
 
-  Record({
+  RecordModel({
     required this.doctorId,
     required this.patientId,
     required this.hospitalId,
@@ -19,5 +24,8 @@ class Record {
     required this.description,
     required this.admissionDate,
     required this.dischargeDate,
+    required this.doctor,
+    required this.hospital,
+    required this.createdAt,
   });
 }
