@@ -29,12 +29,10 @@ class BottomNavController extends GetxController {
   }
 
   navigateToPrescriptions() {
-    Navigator.pop(context);
     Get.toNamed(Routes.PRESCRIPTIONS);
   }
 
   navigateToProfile() {
-    Navigator.pop(context);
     Get.toNamed(Routes.PROFILE);
   }
 }

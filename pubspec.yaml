@@ -44,6 +44,7 @@ dependencies:
   shared_preferences_android: ^2.2.2
   lottie: ^3.1.0
   intl: ^0.18.1
+  syncfusion_flutter_barcodes: ^25.1.42
 
 dev_dependencies:
   flutter_test:

@@ -16,6 +16,7 @@ class RecordsScreen extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: const Center(
             child: Text(
               "Records",

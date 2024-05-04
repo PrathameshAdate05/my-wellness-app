@@ -6,6 +6,8 @@ import 'package:my_wellness_mobile/modules/prescriptions_list/prescriptions_bind
 import 'package:my_wellness_mobile/modules/prescriptions_list/prescriptions_screen.dart';
 import 'package:my_wellness_mobile/modules/prescritption_detail/prescription_detail_bindings.dart';
 import 'package:my_wellness_mobile/modules/prescritption_detail/prescription_detail_screen.dart';
+import 'package:my_wellness_mobile/modules/profile/profile_bindings.dart';
+import 'package:my_wellness_mobile/modules/profile/profile_screen.dart';
 import 'package:my_wellness_mobile/modules/record_details/record_details_bindings.dart';
 import 'package:my_wellness_mobile/modules/record_details/record_details_screen.dart';
 import 'package:my_wellness_mobile/modules/records/records_bindings.dart';
@@ -52,54 +54,10 @@ class AppPages {
       page: () => PrescriptionsScreen(),
       binding: PrescriptionsBinding(),
     ),
-    // GetPage(
-    //   name: Routes.LOGIN,
-    //   page: () => LoginScreen(),
-    //   binding: LoginBinding(),
-    //   transition: Transition.fadeIn,
-    //   transitionDuration: const Duration(seconds: 1),
-    // ),
-    // GetPage(
-    //   name: Routes.DASHBOARD,
-    //   page: () => DashboardScreen(),
-    //   binding: DashboardBinding(),
-    //   transition: Transition.fadeIn,
-    //   transitionDuration: const Duration(seconds: 1),
-    // ),
-    // GetPage(
-    //   name: Routes.CHAT_USER_LIST,
-    //   page: () => ChatUserListScreen(),
-    //   binding: ChatUserListBinding(),
-    //   transition: Transition.fadeIn,
-    //   transitionDuration: const Duration(seconds: 1),
-    // ),
-    // GetPage(
-    //   name: Routes.APPOINTMENT_USER_LIST,
-    //   page: () => AppointmentUserListScreen(),
-    //   binding: AppointmentUserListBinding(),
-    //   transition: Transition.fadeIn,
-    //   transitionDuration: const Duration(seconds: 1),
-    // ),
-    // GetPage(
-    //   name: Routes.REGISTRATION_ONE,
-    //   page: () => RegistrationOneScreen(),
-    //   binding: RegistrationOneBinding(),
-    //   transition: Transition.fadeIn,
-    //   transitionDuration: const Duration(seconds: 1),
-    // ),
-    // GetPage(
-    //   name: Routes.REGISTRATION_TWO,
-    //   page: () => RegistrationTwoScreen(),
-    //   binding: RegistrationTwoBinding(),
-    //   transition: Transition.fadeIn,
-    //   transitionDuration: const Duration(seconds: 1),
-    // ),
-    // GetPage(
-    //   name: Routes.REGISTRATION_THREE,
-    //   page: () => RegistrationThreeScreen(),
-    //   binding: RegistrationThreeBinding(),
-    //   transition: Transition.fadeIn,
-    //   transitionDuration: const Duration(seconds: 1),
-    // ),
+    GetPage(
+      name: Routes.PROFILE,
+      page: () => ProfileScreen(),
+      binding: ProfileBinding(),
+    ),
   ];
 }
