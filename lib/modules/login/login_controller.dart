@@ -17,16 +17,15 @@ class LoginController extends GetxController {
   TextEditingController passwordController = TextEditingController();
 
   onPressedLogin(BuildContext context) async {
-    navigateToHome(context);
-    // if (idController.text.isEmpty && passwordController.text.isEmpty) {
-    //   showSnackBar(context, "ID and Password is required", Colors.red);
-    // } else if (idController.text.isEmpty) {
-    //   showSnackBar(context, "ID is required", Colors.red);
-    // } else if (passwordController.text.isEmpty) {
-    //   showSnackBar(context, "Password is required", Colors.red);
-    // } else {
-    //   await login(context);
-    // }
+    if (idController.text.isEmpty && passwordController.text.isEmpty) {
+      showSnackBar(context, "ID and Password is required", Colors.red);
+    } else if (idController.text.isEmpty) {
+      showSnackBar(context, "ID is required", Colors.red);
+    } else if (passwordController.text.isEmpty) {
+      showSnackBar(context, "Password is required", Colors.red);
+    } else {
+      await login(context);
+    }
   }
 
   showSnackBar(BuildContext context, String message, Color color) {
@@ -60,7 +59,6 @@ class LoginController extends GetxController {
           await SharedPreferences.getInstance();
       sharedPreferences.setString('token', token);
       sharedPreferences.setString('id', idController.text);
-      // showSnackBar(context, "Login Successfull!", Colors.green);
       Future.delayed(const Duration(seconds: 2), () => navigateToHome(context));
     } else {
       showSnackBar(context, "Invalid ID or Password", Colors.red);
@@ -70,6 +68,6 @@ class LoginController extends GetxController {
   navigateToHome(BuildContext context) {
     Navigator.pop(context);
     Get.put(RecordsController());
-    Get.toNamed(Routes.HOME);
+    Get.toNamed(Routes.RECORDS);
   }
 }

@@ -2,6 +2,8 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
 import 'package:my_wellness_mobile/modules/login/login_bindings.dart';
 import 'package:my_wellness_mobile/modules/login/login_screen.dart';
+import 'package:my_wellness_mobile/modules/record_details/record_details_bindings.dart';
+import 'package:my_wellness_mobile/modules/record_details/record_details_screen.dart';
 import 'package:my_wellness_mobile/modules/records/records_bindings.dart';
 import 'package:my_wellness_mobile/modules/records/records_screen.dart';
 import 'package:my_wellness_mobile/modules/splash/splash_bindings.dart';
@@ -27,9 +29,14 @@ class AppPages {
       binding: SplashBinding(),
     ),
     GetPage(
-      name: Routes.HOME,
+      name: Routes.RECORDS,
       page: () => RecordsScreen(),
       binding: RecordsBinding(),
+    ),
+    GetPage(
+      name: Routes.RECORD_DETAILS,
+      page: () => RecordDetialsScreen(),
+      binding: RecordDetailsBinding(),
     ),
     // GetPage(
     //   name: Routes.LOGIN,

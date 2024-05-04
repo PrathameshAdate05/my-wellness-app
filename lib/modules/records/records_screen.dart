@@ -30,8 +30,12 @@ class RecordsScreen extends StatelessWidget {
             children: [
               Expanded(
                 child: ListView.builder(
-                  itemBuilder: (context, index) =>
-                      RecordCardView(record: controller.recordsList[index]),
+                  itemBuilder: (context, index) => RecordCardView(
+                      record: controller.recordsList[index],
+                      onTapViewRecord: () =>
+                          controller.onPressedViewRecord(context, index),
+                      onTapViewPrescription: () =>
+                          controller.onPressedViewPrescription(context, index)),
                   itemCount: controller.recordsList.length,
                   reverse: true,
                 ),

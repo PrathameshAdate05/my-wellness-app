@@ -7,6 +7,7 @@ import 'package:my_wellness_mobile/data/models/hospital_model.dart';
 import 'package:my_wellness_mobile/data/models/medicine_model.dart';
 import 'package:my_wellness_mobile/data/models/prescription_model.dart';
 import 'package:my_wellness_mobile/data/models/record_model.dart';
+import 'package:my_wellness_mobile/routes/app_routes.dart';
 import 'package:my_wellness_mobile/utils/constans.dart';
 import 'package:my_wellness_mobile/widgets/custom_loader.dart';
 import 'package:http/http.dart' as http;
@@ -115,6 +116,13 @@ class RecordsController extends GetxController {
       showSnackBar(Get.context!, "Something went wrong try again!", Colors.red);
     }
   }
+
+  onPressedViewRecord(BuildContext context, int index) {
+    Get.toNamed(Routes.RECORD_DETAILS,
+        arguments: {"record": recordsList[index]});
+  }
+
+  onPressedViewPrescription(BuildContext context, int index) {}
 
   showSnackBar(BuildContext context, String message, Color color) {
     final snackBar = SnackBar(

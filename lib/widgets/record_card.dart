@@ -5,9 +5,15 @@ import 'package:my_wellness_mobile/utils/colors.dart';
 import 'package:intl/intl.dart';
 
 class RecordCardView extends StatelessWidget {
-  RecordCardView({required this.record});
+  const RecordCardView(
+      {super.key,
+      required this.record,
+      required this.onTapViewRecord,
+      required this.onTapViewPrescription});
 
   final RecordModel record;
+  final Function onTapViewRecord;
+  final Function onTapViewPrescription;
   @override
   Widget build(BuildContext context) {
     DateTime createdAtDateTime = DateTime.parse(record.createdAt);
@@ -102,40 +108,50 @@ class RecordCardView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Expanded(
-                  child: Container(
-                    padding: const EdgeInsets.only(
-                        top: 5, bottom: 5, left: 10, right: 10),
-                    margin: const EdgeInsets.only(left: 5, right: 10),
-                    decoration: BoxDecoration(
-                      color: CustomColor.darkGreen,
-                      border: Border.all(
-                        color: CustomColor.darkGreen, // Set border color here
-                        width: 2.0, // Set border width here
+                  child: InkWell(
+                    onTap: () {
+                      onTapViewRecord.call();
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.only(
+                          top: 5, bottom: 5, left: 10, right: 10),
+                      margin: const EdgeInsets.only(left: 5, right: 10),
+                      decoration: BoxDecoration(
+                        color: CustomColor.darkGreen,
+                        border: Border.all(
+                          color: CustomColor.darkGreen, // Set border color here
+                          width: 2.0, // Set border width here
+                        ),
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: const Text(
-                      "View Record",
-                      textAlign: TextAlign.center,
+                      child: const Text(
+                        "View Record",
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    padding: const EdgeInsets.only(
-                        top: 5, bottom: 5, left: 10, right: 10),
-                    margin: const EdgeInsets.only(left: 10, right: 5),
-                    decoration: BoxDecoration(
-                      color: Colors.redAccent,
-                      border: Border.all(
-                        color: Colors.redAccent, // Set border color here
-                        width: 2.0, // Set border width here
+                  child: InkWell(
+                    onTap: () {
+                      onTapViewPrescription.call();
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.only(
+                          top: 5, bottom: 5, left: 10, right: 10),
+                      margin: const EdgeInsets.only(left: 10, right: 5),
+                      decoration: BoxDecoration(
+                        color: Colors.redAccent,
+                        border: Border.all(
+                          color: Colors.redAccent, // Set border color here
+                          width: 2.0, // Set border width here
+                        ),
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: const Text(
-                      "View Prescription",
-                      textAlign: TextAlign.center,
+                      child: const Text(
+                        "View Prescription",
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
                 ),

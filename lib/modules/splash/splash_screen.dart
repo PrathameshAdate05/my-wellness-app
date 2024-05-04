@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:my_wellness_mobile/modules/splash/splash_controller.dart';
 
 class SplashScreen extends StatelessWidget {
+  SplashScreen({super.key});
+
+  final SplashController controller = Get.find<SplashController>();
+
   @override
   Widget build(BuildContext context) {
+    controller.context = context;
     return Scaffold(
         backgroundColor: const Color.fromRGBO(34, 194, 182, 1),
         body: Center(
