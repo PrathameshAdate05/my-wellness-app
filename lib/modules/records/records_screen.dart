@@ -23,7 +23,6 @@ class RecordsScreen extends StatelessWidget {
             ),
           ),
           backgroundColor: CustomColor.lightGreen,
-          automaticallyImplyLeading: false,
         ),
         body: Obx(
           () => Column(
@@ -37,7 +36,6 @@ class RecordsScreen extends StatelessWidget {
                       onTapViewPrescription: () =>
                           controller.onPressedViewPrescription(context, index)),
                   itemCount: controller.recordsList.length,
-                  reverse: true,
                 ),
               ),
               BottomNavView(profile: false, prescription: false, records: true),

@@ -59,7 +59,7 @@ class LoginController extends GetxController {
           await SharedPreferences.getInstance();
       sharedPreferences.setString('token', token);
       sharedPreferences.setString('id', idController.text);
-      Future.delayed(const Duration(seconds: 2), () => navigateToHome(context));
+      navigateToHome(context);
     } else {
       showSnackBar(context, "Invalid ID or Password", Colors.red);
     }

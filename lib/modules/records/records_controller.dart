@@ -111,6 +111,17 @@ class RecordsController extends GetxController {
         );
         recordsList.add(record);
       }
+
+      List<RecordModel> reversedRecords =
+          List<RecordModel>.from(recordsList.reversed);
+      recordsList.assignAll(reversedRecords);
+    } else if (response.statusCode == 401) {
+      showSnackBar(Get.context!, "Session Expired", Colors.yellow);
+      SharedPreferences sharedPreferences =
+          await SharedPreferences.getInstance();
+      sharedPreferences.clear();
+      Navigator.pop(Get.context!);
+      Get.toNamed(Routes.LOGIN);
     } else {
       print(response.body);
       showSnackBar(Get.context!, "Something went wrong try again!", Colors.red);
@@ -122,7 +133,11 @@ class RecordsController extends GetxController {
         arguments: {"record": recordsList[index]});
   }
 
-  onPressedViewPrescription(BuildContext context, int index) {}
+  onPressedViewPrescription(BuildContext context, int index) {
+    Get.toNamed(Routes.PRESCRIPTION_DETAILS, arguments: {
+      "prescription": recordsList[index].prescription,
+    });
+  }
 
   showSnackBar(BuildContext context, String message, Color color) {
     final snackBar = SnackBar(

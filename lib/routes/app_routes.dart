@@ -4,4 +4,5 @@ abstract class Routes {
   static const LOGIN = '/login';
   static const RECORDS = '/records';
   static const RECORD_DETAILS = '/record_details';
+  static const PRESCRIPTION_DETAILS = '/prescription_details';
 }

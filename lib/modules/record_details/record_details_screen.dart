@@ -16,6 +16,7 @@ class RecordDetialsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Center(
+          widthFactor: 1.5,
           child: Text(
             "Record Details",
             style: TextStyle(fontFamily: "Poppins"),
@@ -23,7 +24,6 @@ class RecordDetialsScreen extends StatelessWidget {
           ),
         ),
         backgroundColor: CustomColor.darkGreen,
-        automaticallyImplyLeading: false,
       ),
       body: Obx(
         () => Container(
