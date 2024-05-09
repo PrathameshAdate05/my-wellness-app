@@ -14,11 +14,11 @@ class PrescriptionCardView extends StatelessWidget {
     String formattedDate =
         DateFormat('yyyy-MM-dd hh:mm a').format(createdAtDateTime);
     return Card(
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       surfaceTintColor: Colors.white,
       elevation: 10,
       child: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Column(
           children: [
             Center(
@@ -29,7 +29,7 @@ class PrescriptionCardView extends StatelessWidget {
             ),
             Text(
               formattedDate,
-              style: TextStyle(
+              style: const TextStyle(
                   fontFamily: "Poppins",
                   fontSize: 20,
                   fontWeight: FontWeight.w600),

@@ -15,7 +15,13 @@ class PrescriptionsScreen extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Center(child: Text("Prescriptions")),
+          title: const Center(
+              child: Text(
+            "Prescriptions",
+            style: TextStyle(
+              fontFamily: "Poppins",
+            ),
+          )),
           backgroundColor: Colors.redAccent,
           automaticallyImplyLeading: false,
         ),

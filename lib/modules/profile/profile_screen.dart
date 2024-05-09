@@ -31,6 +31,9 @@ class ProfileScreen extends StatelessWidget {
                           child: Text(
                             "Profile",
                             textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontFamily: "Poppins",
+                            ),
                           ),
                         ),
                       ),

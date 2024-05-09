@@ -13,6 +13,7 @@ class CustomLoader extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           backgroundColor: Colors.transparent,
+          surfaceTintColor: Colors.transparent,
           content: Lottie.asset(
             'assets/json/loader_anim.json',
             height: 100,

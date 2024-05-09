@@ -36,7 +36,7 @@ class ProfileController extends GetxController {
         country: "",
         createdAt: "2024-05-04T13:28:26+00:00",
         updatedAt: "",
-        dob: ""));
+        dob: "2024-05-04"));
     await getUserIdAndToken();
     await getPatientProfile();
     super.onInit();
@@ -64,27 +64,31 @@ class ProfileController extends GetxController {
       dynamic res = jsonDecode(response.body);
       dynamic resPatient = res["user"];
       DateTime createdAtDateTime = DateTime.parse(resPatient["createdAt"]);
-      String formattedDate =
-          DateFormat('yyyy-MM-dd hh:mm a').format(createdAtDateTime);
+      String formattedCreatedDate =
+          DateFormat('yyyy-MM-dd').format(createdAtDateTime);
+
+      DateTime dob = DateTime.parse(resPatient["dob"]);
+      String formattedDOB = DateFormat('yyyy-MM-dd').format(dob);
 
       Patient tempPatient = Patient(
-          patientId: resPatient["patientId"],
-          firstName: resPatient["firstName"],
-          middleName: resPatient["middleName"],
-          lastName: resPatient["lastName"],
-          email: resPatient["email"],
-          contact: resPatient["contact"],
-          age: resPatient["age"],
-          gender: resPatient["gender"],
-          isAlive: resPatient["isAlive"],
-          address: resPatient["address"],
-          city: resPatient["city"],
-          state: resPatient["state"],
-          pincode: resPatient["pincode"],
-          country: resPatient["country"],
-          createdAt: formattedDate,
-          updatedAt: resPatient["updatedAt"],
-          dob: resPatient["dob"]);
+        patientId: resPatient["patientId"],
+        firstName: resPatient["firstName"],
+        middleName: resPatient["middleName"],
+        lastName: resPatient["lastName"],
+        email: resPatient["email"],
+        contact: resPatient["contact"],
+        age: resPatient["age"],
+        gender: resPatient["gender"],
+        isAlive: resPatient["isAlive"],
+        address: resPatient["address"],
+        city: resPatient["city"],
+        state: resPatient["state"],
+        pincode: resPatient["pincode"],
+        country: resPatient["country"],
+        createdAt: formattedCreatedDate,
+        updatedAt: resPatient["updatedAt"],
+        dob: formattedDOB,
+      );
 
       patient.clear();
       patient.add(tempPatient);

@@ -13,8 +13,13 @@ class PrescriptionDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Center(
-          child: Text('Prescription Detail'),
           widthFactor: 1.5,
+          child: Text(
+            'Prescription Detail',
+            style: TextStyle(
+              fontFamily: "Poppins",
+            ),
+          ),
         ),
         backgroundColor: Colors.redAccent,
       ),
@@ -34,7 +39,7 @@ class PrescriptionDetailScreen extends StatelessWidget {
             Container(
               margin: const EdgeInsets.all(10),
               child: DottedBorder(
-                dashPattern: [5],
+                dashPattern: const [5],
                 borderType: BorderType.RRect,
                 radius: const Radius.circular(12),
                 padding: const EdgeInsets.all(10),
