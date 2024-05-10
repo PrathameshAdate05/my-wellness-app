@@ -25,22 +25,52 @@ class PrescriptionsScreen extends StatelessWidget {
           backgroundColor: Colors.redAccent,
           automaticallyImplyLeading: false,
         ),
-        body: Obx(
-          () => Column(
+        body: Stack(children: [
+          Obx(
+            () => Container(
+              margin: const EdgeInsets.only(bottom: 80),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  controller.prescriptionList.isNotEmpty
+                      ? Expanded(
+                          child: ListView.builder(
+                            itemBuilder: (context, index) =>
+                                PrescriptionCardView(
+                              prescription: controller.prescriptionList[index],
+                            ),
+                            itemCount: controller.prescriptionList.length,
+                          ),
+                        )
+                      : Center(
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                "assets/images/no_records.jpg",
+                                height: 200,
+                              ),
+                              const Text(
+                                "No prescriptions available!!!",
+                                style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 16.0,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                ],
+              ),
+            ),
+          ),
+          Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(
-                child: ListView.builder(
-                  itemBuilder: (context, index) => PrescriptionCardView(
-                    prescription: controller.prescriptionList[index],
-                  ),
-                  itemCount: controller.prescriptionList.length,
-                ),
-              ),
+              const SizedBox(),
               BottomNavView(profile: false, prescription: true, records: false),
             ],
-          ),
-        ),
+          )
+        ]),
       ),
     );
   }

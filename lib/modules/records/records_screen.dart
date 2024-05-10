@@ -25,24 +25,54 @@ class RecordsScreen extends StatelessWidget {
           ),
           backgroundColor: CustomColor.lightGreen,
         ),
-        body: Obx(
-          () => Column(
-            children: [
-              Expanded(
-                child: ListView.builder(
-                  itemBuilder: (context, index) => RecordCardView(
-                      record: controller.recordsList[index],
-                      onTapViewRecord: () =>
-                          controller.onPressedViewRecord(context, index),
-                      onTapViewPrescription: () =>
-                          controller.onPressedViewPrescription(context, index)),
-                  itemCount: controller.recordsList.length,
-                ),
+        body: Stack(children: [
+          Obx(
+            () => Container(
+              margin: const EdgeInsets.only(bottom: 80),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  controller.recordsList.isNotEmpty
+                      ? Expanded(
+                          child: ListView.builder(
+                            itemBuilder: (context, index) => RecordCardView(
+                                record: controller.recordsList[index],
+                                onTapViewRecord: () => controller
+                                    .onPressedViewRecord(context, index),
+                                onTapViewPrescription: () => controller
+                                    .onPressedViewPrescription(context, index)),
+                            itemCount: controller.recordsList.length,
+                          ),
+                        )
+                      : Center(
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                "assets/images/no_records.jpg",
+                                height: 200,
+                              ),
+                              const Text(
+                                "No records available!!!",
+                                style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 16.0,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                ],
               ),
+            ),
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const SizedBox(),
               BottomNavView(profile: false, prescription: false, records: true),
             ],
           ),
-        ),
+        ]),
       ),
     );
   }

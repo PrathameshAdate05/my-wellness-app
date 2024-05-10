@@ -60,7 +60,7 @@ class RecordCardView extends StatelessWidget {
                       fontSize: 14,
                       fontWeight: FontWeight.w400),
                 ),
-                Text("${record.doctor.firstName}${record.doctor.lastName}",
+                Text("${record.doctor.firstName} ${record.doctor.lastName}",
                     style: const TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 14,
